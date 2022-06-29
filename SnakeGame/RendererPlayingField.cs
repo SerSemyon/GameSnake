@@ -7,10 +7,19 @@ namespace SnakeGame;
 /// </summary>
 internal class RendererPlayingField : Panel
 {
+    static bool drawCellsBackground = true;
+    static Color backColor = Color.Aquamarine;
+    static Color borderColor = Color.Black;
     int sizeOfCell;
     public int SizeOfCell
     {
         get { return sizeOfCell; }
+    }
+    public static void SetSettings(bool DrawCellsBackground, Color BackColor, Color BorderColor)
+    {
+        drawCellsBackground = DrawCellsBackground;
+        backColor = BackColor;
+        borderColor = BorderColor;
     }
     public RendererPlayingField() : base()
     {
@@ -30,21 +39,38 @@ internal class RendererPlayingField : Panel
             if (newHeight > newWidth) sizeOfCell = (int)newWidth;
             else sizeOfCell = (int)newHeight;
         }
-        for (int i = 0; i <= fieldHeight; i++)
+        DrawBackground(fieldWidth, fieldHeight);
+    }
+    public void DrawBackground(int fieldWidth, int fieldHeight)
+    {
+        Bitmap background = new Bitmap(Width, Height);
+        for (int i =0; i< background.Width; i++)
         {
-            PictureBox pic = new PictureBox();
-            pic.BackColor = Color.Black;
-            pic.Location = new Point(0, sizeOfCell * i);
-            pic.Size = new Size(fieldWidth * sizeOfCell, 1);
-            Controls.Add(pic);
+            background.SetPixel(i, 0, borderColor);
+            background.SetPixel(i, background.Height - 1, borderColor);
         }
-        for (int i = 0; i <= fieldWidth; i++)
+        for (int i = 0; i < background.Height; i++)
         {
-            PictureBox pic = new PictureBox();
-            pic.BackColor = Color.Black;
-            pic.Location = new Point(sizeOfCell * i, 0);
-            pic.Size = new Size(1, fieldHeight * sizeOfCell);
-            Controls.Add(pic);
+            background.SetPixel(0, i, borderColor);
+            background.SetPixel(background.Width - 1, i, borderColor);
         }
+        if (drawCellsBackground)
+        {
+            for (int y = 0; y <= fieldHeight; y++)
+            {
+                for (int x = 0; x< background.Width; x++)
+                {
+                    background.SetPixel(x, y * sizeOfCell, backColor);
+                }
+            }
+            for (int x = 0; x <= fieldWidth; x++)
+            {
+                for (int y = 0; y< background.Height; y++)
+                {
+                    background.SetPixel(x * sizeOfCell, y, backColor);
+                }
+            }
+        }
+        BackgroundImage = background;
     }
 }

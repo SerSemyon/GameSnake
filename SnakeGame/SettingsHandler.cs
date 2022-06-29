@@ -15,7 +15,7 @@ internal static class SettingsHandler
         try
         {
             StreamReader reader = new StreamReader("Settings.txt");
-            string[] input = reader.ReadToEnd().Split();
+            string[] input = reader.ReadToEnd().Split('\n');
             width = int.Parse(input[0]);
             height = int.Parse(input[1]);
             timerInterval = int.Parse(input[2]);
@@ -38,7 +38,7 @@ internal static class SettingsHandler
         if (isChanged)
         {
             StreamWriter writer = new StreamWriter("Settings.txt");
-            writer.Write(width.ToString()+" "+height+" "+timerInterval);
+            writer.Write(width.ToString()+'\n'+height+'\n'+timerInterval);
             writer.Close();
         }
     }
