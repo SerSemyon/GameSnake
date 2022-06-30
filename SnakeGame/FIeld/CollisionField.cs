@@ -56,7 +56,7 @@ internal class CollisionField
             x = random.Next(cells.GetLength(0));
             y = random.Next(cells.GetLength(1));
         }
-        while (cells[x,y] is not null);
+        while (cells[x, y] is not null);
         return (x, y);
     }
 }

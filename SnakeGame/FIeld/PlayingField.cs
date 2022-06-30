@@ -64,7 +64,7 @@ internal class PlayingField
     public static void CreateFood()
     {
         (int X, int Y) location = playingField.collisionField.RandomEmptyCell();
-        Food food = new Food(new Point(location.X*Size, location.Y*Size), renderer.SizeOfCell);
+        Food food = new Food(new Point(location.X * Size, location.Y * Size), renderer.SizeOfCell);
         Add(food, food.cellBox, location);
     }
     public static Point PointFromCoordinates(int X, int Y)
