@@ -71,7 +71,9 @@
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonNewGame);
             this.Name = "FormEndGame";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Конец игры";
+            this.Load += new System.EventHandler(this.FormEndGame_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

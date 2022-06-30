@@ -12,35 +12,29 @@ namespace SnakeGame
 {
     public partial class FormEndGame : Form
     {
-        static FormEndGame? instance;
-        public static FormEndGame Instance
-        {
-            get { return instance; }
-        }
-        private FormEndGame()
+        public static FormEndGame? Instance;
+        public FormEndGame(int score)
         {
             InitializeComponent();
-        }
-        public static void ShowForm(int score)
-        {
-            if (instance == null)
-            {
-                instance = new FormEndGame();
-                instance.Show();
-                instance.labelScore.Text = score.ToString();
-            }
+            labelScore.Text = score.ToString();
+            Instance = this;
         }
 
         private void buttonNewGame_Click(object sender, EventArgs e)
         {
             GameController.GameRestart();
-            instance = null;
+            Instance = null;
             this.Close();
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
             FormMain.Instance.Close();
+        }
+
+        private void FormEndGame_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

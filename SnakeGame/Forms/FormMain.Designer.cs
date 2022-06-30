@@ -45,7 +45,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 761);
             this.Controls.Add(this.playingField);
+            this.MinimumSize = new System.Drawing.Size(500, 500);
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Змейка";
             this.Activated += new System.EventHandler(this.FormMain_Activated);
             this.Deactivate += new System.EventHandler(this.FormMain_Deactivate);

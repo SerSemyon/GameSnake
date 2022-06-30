@@ -39,6 +39,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.buttonResume, 0, 0);
@@ -61,9 +62,9 @@
             // buttonResume
             // 
             this.buttonResume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonResume.Location = new System.Drawing.Point(3, 3);
+            this.buttonResume.Location = new System.Drawing.Point(5, 5);
             this.buttonResume.Name = "buttonResume";
-            this.buttonResume.Size = new System.Drawing.Size(186, 50);
+            this.buttonResume.Size = new System.Drawing.Size(182, 48);
             this.buttonResume.TabIndex = 0;
             this.buttonResume.Text = "Возобновить игру";
             this.buttonResume.UseVisualStyleBackColor = true;
@@ -72,9 +73,9 @@
             // buttonNewGame
             // 
             this.buttonNewGame.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonNewGame.Location = new System.Drawing.Point(3, 59);
+            this.buttonNewGame.Location = new System.Drawing.Point(5, 61);
             this.buttonNewGame.Name = "buttonNewGame";
-            this.buttonNewGame.Size = new System.Drawing.Size(186, 50);
+            this.buttonNewGame.Size = new System.Drawing.Size(182, 48);
             this.buttonNewGame.TabIndex = 1;
             this.buttonNewGame.Text = "Новая игра";
             this.buttonNewGame.UseVisualStyleBackColor = true;
@@ -83,9 +84,9 @@
             // buttonRecords
             // 
             this.buttonRecords.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonRecords.Location = new System.Drawing.Point(3, 115);
+            this.buttonRecords.Location = new System.Drawing.Point(5, 117);
             this.buttonRecords.Name = "buttonRecords";
-            this.buttonRecords.Size = new System.Drawing.Size(186, 50);
+            this.buttonRecords.Size = new System.Drawing.Size(182, 48);
             this.buttonRecords.TabIndex = 2;
             this.buttonRecords.Text = "Таблица рекордов";
             this.buttonRecords.UseVisualStyleBackColor = true;
@@ -94,9 +95,9 @@
             // buttonSettings
             // 
             this.buttonSettings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSettings.Location = new System.Drawing.Point(3, 171);
+            this.buttonSettings.Location = new System.Drawing.Point(5, 173);
             this.buttonSettings.Name = "buttonSettings";
-            this.buttonSettings.Size = new System.Drawing.Size(186, 50);
+            this.buttonSettings.Size = new System.Drawing.Size(182, 48);
             this.buttonSettings.TabIndex = 3;
             this.buttonSettings.Text = "Настройки";
             this.buttonSettings.UseVisualStyleBackColor = true;
@@ -105,9 +106,9 @@
             // buttonExit
             // 
             this.buttonExit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonExit.Location = new System.Drawing.Point(3, 227);
+            this.buttonExit.Location = new System.Drawing.Point(5, 229);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(186, 54);
+            this.buttonExit.Size = new System.Drawing.Size(182, 50);
             this.buttonExit.TabIndex = 4;
             this.buttonExit.Text = "Выход";
             this.buttonExit.UseVisualStyleBackColor = true;
@@ -119,7 +120,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(192, 284);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormPause";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormPause_FormClosed);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

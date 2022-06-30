@@ -17,17 +17,11 @@ public partial class FormPause : Form
     {
         get { return instance; }
     }
-    private FormPause()
+    public FormPause()
     {
         InitializeComponent();
-    }
-    public static void ShowForm()
-    {
-        if (instance is null)
-        {
-            instance = new FormPause();
-            instance.ShowDialog();
-        }
+        instance = this;
+        //instance.Owner = FormMain.Instance;
     }
 
     private void buttonResume_Click(object sender, EventArgs e)
@@ -45,12 +39,13 @@ public partial class FormPause : Form
     private void buttonRecords_Click(object sender, EventArgs e)
     {
         FormRecords formRecords = new FormRecords();
-        formRecords.ShowDialog();
+        formRecords.Show();
     }
 
     private void buttonSettings_Click(object sender, EventArgs e)
     {
-
+        FormSettings formSettings = new FormSettings();
+        formSettings.ShowDialog();
     }
 
     private void FormPause_FormClosed(object sender, FormClosedEventArgs e)

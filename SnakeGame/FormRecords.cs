@@ -22,5 +22,10 @@ namespace SnakeGame
         {
             this.Close();
         }
+
+        private void FormRecords_Deactivate(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

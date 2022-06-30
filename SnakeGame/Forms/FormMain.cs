@@ -34,7 +34,7 @@ namespace SnakeGame
 
         private void FormMain_Activated(object sender, EventArgs e)
         {
-            if (FormEndGame.Instance is null)
+            if (FormEndGame.Instance is null && FormPause.Instance is null)
             {
                 GameController.GameResume();
             }
@@ -47,7 +47,8 @@ namespace SnakeGame
         {
             if (e.KeyCode == Keys.Escape)
             {
-                FormPause.ShowForm();
+                FormPause formPause = new FormPause();
+                formPause.Show(this);
             }
         }
     }

@@ -46,7 +46,8 @@ internal class GameController
         }
         else
         {
-            FormEndGame.ShowForm(snake.Length);
+            FormEndGame endGame = new FormEndGame(snake.Length);
+            endGame.ShowDialog();
         }
     }
     public static void GameRestart()
