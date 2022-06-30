@@ -42,7 +42,40 @@ internal class Snake
     {
         //Проверка на попытку повенуть змейку "в себя"
         if ((newMotionVector.X+headLocation.X,newMotionVector.Y+headLocation.Y)!=lastHeadLocaton)
-        motionVector = newMotionVector;
+        {
+            if (newMotionVector != motionVector)
+            {
+                if (motionVector.X > 0)
+                {
+                    if (newMotionVector.Y > 0)
+                        cells[0].cellBox.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                    else
+                        cells[0].cellBox.Image.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                }
+                else if (motionVector.X < 0)
+                {
+                    if (newMotionVector.Y < 0)
+                        cells[0].cellBox.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                    else
+                        cells[0].cellBox.Image.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                }
+                else if (motionVector.Y > 0)
+                {
+                    if (newMotionVector.X < 0)
+                        cells[0].cellBox.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                    else
+                        cells[0].cellBox.Image.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                }
+                else if (motionVector.Y < 0)
+                {
+                    if (newMotionVector.X > 0)
+                        cells[0].cellBox.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                    else
+                        cells[0].cellBox.Image.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                }
+                motionVector = newMotionVector;
+            }
+        }
     }
     public void AddCell(Food food)
     {
