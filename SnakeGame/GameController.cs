@@ -13,13 +13,13 @@ internal class GameController
         timer.Interval = time;
         timer.Tick += Step;
     }
-    public static void GameCreate(int width, int height, int time)
+    public static void GameCreate(int time)
     {
         if (gameController == null) 
         {
             gameController = new GameController(time);
         }
-        PlayingField.CreateField(width, height);
+        PlayingField.CreateField();
     }
     private void Step(object? sender, EventArgs e)
     {
@@ -28,6 +28,11 @@ internal class GameController
     }
     public static void GameStart()
     {
+        if (SettingsHandler.hasNewSettings)
+        {
+            PlayingField.CreateField();
+            gameController.timer.Interval = SettingsHandler.timerInterval;
+        }
         gameController.snake = new Snake(PlayingField.GetCenter(), PlayingField.Size);
         //gameController.snake2 = new Snake((2, 2), PlayingField.Size);
         //gameController.controller2 = new SnakeController(gameController.snake2);
@@ -52,8 +57,10 @@ internal class GameController
     }
     public static void GameRestart()
     {
+        gameController.timer.Stop();
         PlayingField.ReviewField();
         GameStart();
+        gameController.timer.Start();
     }
     public static void GamePause()
     {

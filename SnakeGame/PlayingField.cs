@@ -12,7 +12,6 @@ internal class PlayingField
         }
     }
     CollisionField collisionField;
-    int width, height;
     /// <summary>
     /// Размер одной ячейки.
     /// </summary>
@@ -20,25 +19,23 @@ internal class PlayingField
     {
         get { return renderer.SizeOfCell; }
     }
-    private PlayingField(int width, int height)
+    private PlayingField()
     {
-        this.width = width;
-        this.height = height;
-        renderer.DrawField(width, height);
-        collisionField = new CollisionField(width, height);
+        renderer.DrawField(SettingsHandler.width, SettingsHandler.height);
+        collisionField = new CollisionField(SettingsHandler.width, SettingsHandler.height);
     }
-    public static void CreateField(int width, int height)
+    public static void CreateField()
     {
         if (playingField is null)
         {
-            playingField = new PlayingField(width, height);
+            playingField = new PlayingField();
         }
-        renderer.DrawField(width, height);
-        playingField.collisionField = new CollisionField(width, height);
+        renderer.DrawField(SettingsHandler.width, SettingsHandler.height);
+        playingField.collisionField = new CollisionField(SettingsHandler.width, SettingsHandler.height);
     }
     public static void ReviewField()
     {
-        CreateField(playingField.width, playingField.height);
+        CreateField();
     }
     public static void Add(ICollisionable gameObject, CellRenderer cellRenderer, (int X, int Y) location)
     {
@@ -80,6 +77,6 @@ internal class PlayingField
     }
     public static (int X, int Y) GetCenter()
     {
-        return (playingField.width / 2, playingField.height / 2);
+        return (SettingsHandler.width / 2, SettingsHandler.height / 2);
     }
 }

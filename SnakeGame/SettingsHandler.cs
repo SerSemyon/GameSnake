@@ -3,10 +3,11 @@ namespace SnakeGame;
 
 internal static class SettingsHandler
 {
-    static int width;
-    static int height;
-    static int timerInterval;
-    static bool isChanged = false;
+    public static int width;
+    public static int height;
+    public static int timerInterval;
+    public static bool hasNewSettings = false;
+    public static bool isFileSettingsChanged = false;
     /// <summary>
     /// Читает настройки из файла. Если файла настроек нет, задаёт их по умолчанию.
     /// </summary>
@@ -26,16 +27,16 @@ internal static class SettingsHandler
             width = 25;
             height = 25;
             timerInterval = 100;
-            isChanged = true;
+            isFileSettingsChanged = true;
         }
-        GameController.GameCreate(width ,height, timerInterval);
+        GameController.GameCreate(timerInterval);
     }
     /// <summary>
     /// Сохраняет изменения настроек.
     /// </summary>
     public static void SaveSettings()
     {
-        if (isChanged)
+        if (isFileSettingsChanged)
         {
             StreamWriter writer = new StreamWriter("Settings.txt");
             writer.Write(width.ToString()+'\n'+height+'\n'+timerInterval);
