@@ -43,6 +43,7 @@ internal class PlayingField
     public static void Add(ICollisionable gameObject, CellRenderer cellRenderer, (int X, int Y) location)
     {
         renderer.Controls.Add(cellRenderer);
+        cellRenderer.BringToFront();
         playingField.collisionField.Add(gameObject, location.X, location.Y);
     }
     public static void Add(ICollisionable gameObject, Point location)

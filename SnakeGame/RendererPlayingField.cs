@@ -11,6 +11,7 @@ internal class RendererPlayingField : Panel
     static Color backColor = Color.Aquamarine;
     static Color borderColor = Color.Black;
     int sizeOfCell;
+    public PictureBox backgroundPicture;
     public int SizeOfCell
     {
         get { return sizeOfCell; }
@@ -24,6 +25,9 @@ internal class RendererPlayingField : Panel
     public RendererPlayingField() : base()
     {
         Dock = DockStyle.Fill;
+        backgroundPicture = new PictureBox();
+        //backgroundPicture.SizeMode = PictureBoxSizeMode.Zoom;
+        backgroundPicture.Dock = DockStyle.Fill;
     }
     /// <summary>
     /// Отрисовывает поле.
@@ -43,8 +47,8 @@ internal class RendererPlayingField : Panel
     }
     public void DrawBackground(int fieldWidth, int fieldHeight)
     {
-        Bitmap background = new Bitmap(Width, Height);
-        for (int i =0; i< background.Width; i++)
+        Bitmap background = new Bitmap(fieldWidth*sizeOfCell, fieldHeight* sizeOfCell);
+        for (int i = 0; i< background.Width; i++)
         {
             background.SetPixel(i, 0, borderColor);
             background.SetPixel(i, background.Height - 1, borderColor);
@@ -56,21 +60,22 @@ internal class RendererPlayingField : Panel
         }
         if (drawCellsBackground)
         {
-            for (int y = 0; y <= fieldHeight; y++)
+            for (int y = 1; y <= fieldHeight - 1; y++)
             {
-                for (int x = 0; x< background.Width; x++)
+                for (int x = 1; x< background.Width-1; x++)
                 {
                     background.SetPixel(x, y * sizeOfCell, backColor);
                 }
             }
-            for (int x = 0; x <= fieldWidth; x++)
+            for (int x = 1; x <= fieldWidth - 1; x++)
             {
-                for (int y = 0; y< background.Height; y++)
+                for (int y = 1; y< background.Height-1; y++)
                 {
                     background.SetPixel(x * sizeOfCell, y, backColor);
                 }
             }
         }
-        BackgroundImage = background;
+        backgroundPicture.Image = background;
+        Controls.Add(backgroundPicture);
     }
 }
