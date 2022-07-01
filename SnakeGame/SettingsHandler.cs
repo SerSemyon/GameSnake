@@ -6,6 +6,9 @@ internal static class SettingsHandler
     public static int width;
     public static int height;
     public static int timerInterval;
+    public static bool drawCellsBackground;
+    public static Color backColor;
+    public static Color borderColor;
     public static bool hasNewSettings = false;
     public static bool isFileSettingsChanged = false;
     /// <summary>
@@ -13,22 +16,12 @@ internal static class SettingsHandler
     /// </summary>
     public static void ReadSettings()
     {
-        try
-        {
-            StreamReader reader = new StreamReader("Settings.txt");
-            string[] input = reader.ReadToEnd().Split('\n');
-            width = int.Parse(input[0]);
-            height = int.Parse(input[1]);
-            timerInterval = int.Parse(input[2]);
-            reader.Close();
-        }
-        catch //настройки по умолчанию
-        {
-            width = 25;
-            height = 25;
-            timerInterval = 100;
-            isFileSettingsChanged = true;
-        }
+        width = Properties.Settings.Default.width;
+        height = Properties.Settings.Default.height;
+        timerInterval = Properties.Settings.Default.timerInterval;
+        drawCellsBackground = Properties.Settings.Default.drawCellsBackground;
+        backColor = Properties.Settings.Default.backColor;
+        borderColor = Properties.Settings.Default.borderColor;
         GameController.GameCreate(timerInterval);
     }
     /// <summary>
@@ -38,9 +31,13 @@ internal static class SettingsHandler
     {
         if (isFileSettingsChanged)
         {
-            StreamWriter writer = new StreamWriter("Settings.txt");
-            writer.Write(width.ToString()+'\n'+height+'\n'+timerInterval);
-            writer.Close();
+            Properties.Settings.Default.width = width;
+            Properties.Settings.Default.height = height;
+            Properties.Settings.Default.timerInterval = timerInterval;
+            Properties.Settings.Default.drawCellsBackground = drawCellsBackground;
+            Properties.Settings.Default.backColor = backColor;
+            Properties.Settings.Default.borderColor = borderColor;
+            Properties.Settings.Default.Save();
         }
     }
 }

@@ -7,20 +7,11 @@ namespace SnakeGame;
 /// </summary>
 internal class RendererPlayingField : Panel
 {
-    static bool drawCellsBackground = true;
-    static Color backColor = Color.Aquamarine;
-    static Color borderColor = Color.Black;
     int sizeOfCell;
     public PictureBox backgroundPicture;
     public int SizeOfCell
     {
         get { return sizeOfCell; }
-    }
-    public static void SetSettings(bool DrawCellsBackground, Color BackColor, Color BorderColor)
-    {
-        drawCellsBackground = DrawCellsBackground;
-        backColor = BackColor;
-        borderColor = BorderColor;
     }
     public RendererPlayingField() : base()
     {
@@ -50,28 +41,28 @@ internal class RendererPlayingField : Panel
         Bitmap background = new Bitmap(fieldWidth * sizeOfCell, fieldHeight * sizeOfCell);
         for (int i = 0; i < background.Width; i++)
         {
-            background.SetPixel(i, 0, borderColor);
-            background.SetPixel(i, background.Height - 1, borderColor);
+            background.SetPixel(i, 0, SettingsHandler.borderColor);
+            background.SetPixel(i, background.Height - 1, SettingsHandler.borderColor);
         }
         for (int i = 0; i < background.Height; i++)
         {
-            background.SetPixel(0, i, borderColor);
-            background.SetPixel(background.Width - 1, i, borderColor);
+            background.SetPixel(0, i, SettingsHandler.borderColor);
+            background.SetPixel(background.Width - 1, i, SettingsHandler.borderColor);
         }
-        if (drawCellsBackground)
+        if (SettingsHandler.drawCellsBackground)
         {
             for (int y = 1; y <= fieldHeight - 1; y++)
             {
                 for (int x = 1; x < background.Width - 1; x++)
                 {
-                    background.SetPixel(x, y * sizeOfCell, backColor);
+                    background.SetPixel(x, y * sizeOfCell, SettingsHandler.backColor);
                 }
             }
             for (int x = 1; x <= fieldWidth - 1; x++)
             {
                 for (int y = 1; y < background.Height - 1; y++)
                 {
-                    background.SetPixel(x * sizeOfCell, y, backColor);
+                    background.SetPixel(x * sizeOfCell, y, SettingsHandler.backColor);
                 }
             }
         }

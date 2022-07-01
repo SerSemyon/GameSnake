@@ -12,9 +12,14 @@ namespace SnakeGame
 {
     public partial class FormSettings : Form
     {
+        Color backColor;
+        Color borderColor;
         public FormSettings()
         {
             InitializeComponent();
+            backColor = SettingsHandler.backColor;
+            borderColor = SettingsHandler.borderColor;
+            checkBox.Checked = SettingsHandler.drawCellsBackground;
         }
 
         private void FormSettings_Load(object sender, EventArgs e)
@@ -31,6 +36,9 @@ namespace SnakeGame
             SettingsHandler.timerInterval = Convert.ToInt32(500 - 47.5 * trackBarSpeed.Value);
             SettingsHandler.isFileSettingsChanged = true;
             SettingsHandler.hasNewSettings = true;
+            SettingsHandler.borderColor = borderColor;
+            SettingsHandler.backColor = backColor;
+            SettingsHandler.drawCellsBackground = checkBox.Checked;
             this.Close();
         }
 
@@ -45,6 +53,37 @@ namespace SnakeGame
             {
                 e.Handled = true;
             }
+        }
+
+        private void checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonBackColor_Click(object sender, EventArgs e)
+        {
+            colorDialog1.Color = backColor;
+            if (colorDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            backColor = colorDialog1.Color;
+        }
+
+        private void buttonBorderColor_Click(object sender, EventArgs e)
+        {
+            colorDialog1.Color = borderColor;
+            if (colorDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            borderColor = colorDialog1.Color;
+        }
+
+        private void buttonResource1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonResource2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -63,6 +63,56 @@ namespace SnakeGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Ellipse0 {
+            get {
+                object obj = ResourceManager.GetObject("Ellipse0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ellipse1 {
+            get {
+                object obj = ResourceManager.GetObject("Ellipse1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ellipse2 {
+            get {
+                object obj = ResourceManager.GetObject("Ellipse2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ellipse3 {
+            get {
+                object obj = ResourceManager.GetObject("Ellipse3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ellipse4 {
+            get {
+                object obj = ResourceManager.GetObject("Ellipse4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Head {
             get {
                 object obj = ResourceManager.GetObject("Head", resourceCulture);
@@ -76,6 +126,16 @@ namespace SnakeGame.Properties {
         internal static System.Drawing.Bitmap redSquare {
             get {
                 object obj = ResourceManager.GetObject("redSquare", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SnakeHead {
+            get {
+                object obj = ResourceManager.GetObject("SnakeHead", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

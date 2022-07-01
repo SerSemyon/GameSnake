@@ -39,14 +39,25 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPageGraphics = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonBorderColor = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBox = new System.Windows.Forms.CheckBox();
+            this.buttonBackColor = new System.Windows.Forms.Button();
+            this.buttonResource1 = new System.Windows.Forms.Button();
+            this.buttonResource2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonAccept = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageGame.SuspendLayout();
             this.tableLayoutPanelGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).BeginInit();
+            this.tabPageGraphics.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -170,6 +181,7 @@
             // 
             // tabPageGraphics
             // 
+            this.tabPageGraphics.Controls.Add(this.tableLayoutPanel3);
             this.tabPageGraphics.Location = new System.Drawing.Point(4, 24);
             this.tabPageGraphics.Name = "tabPageGraphics";
             this.tabPageGraphics.Padding = new System.Windows.Forms.Padding(3);
@@ -177,6 +189,90 @@
             this.tabPageGraphics.TabIndex = 1;
             this.tabPageGraphics.Text = "Графика";
             this.tabPageGraphics.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.buttonBorderColor, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.buttonResource1, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.buttonResource2, 1, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(780, 370);
+            this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // buttonBorderColor
+            // 
+            this.buttonBorderColor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonBorderColor.Location = new System.Drawing.Point(393, 3);
+            this.buttonBorderColor.Name = "buttonBorderColor";
+            this.buttonBorderColor.Size = new System.Drawing.Size(384, 179);
+            this.buttonBorderColor.TabIndex = 0;
+            this.buttonBorderColor.Text = "Выбрать цвет границ";
+            this.buttonBorderColor.UseVisualStyleBackColor = true;
+            this.buttonBorderColor.Click += new System.EventHandler(this.buttonBorderColor_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.checkBox);
+            this.panel1.Controls.Add(this.buttonBackColor);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(384, 179);
+            this.panel1.TabIndex = 1;
+            // 
+            // checkBox
+            // 
+            this.checkBox.AutoSize = true;
+            this.checkBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkBox.Location = new System.Drawing.Point(0, 0);
+            this.checkBox.Name = "checkBox";
+            this.checkBox.Size = new System.Drawing.Size(116, 179);
+            this.checkBox.TabIndex = 1;
+            this.checkBox.Text = "Рисовать клетки";
+            this.checkBox.UseVisualStyleBackColor = true;
+            this.checkBox.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
+            // 
+            // buttonBackColor
+            // 
+            this.buttonBackColor.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonBackColor.Location = new System.Drawing.Point(122, 0);
+            this.buttonBackColor.Name = "buttonBackColor";
+            this.buttonBackColor.Size = new System.Drawing.Size(262, 179);
+            this.buttonBackColor.TabIndex = 0;
+            this.buttonBackColor.Text = "Выбрать цвет клеток";
+            this.buttonBackColor.UseVisualStyleBackColor = true;
+            this.buttonBackColor.Click += new System.EventHandler(this.buttonBackColor_Click);
+            // 
+            // buttonResource1
+            // 
+            this.buttonResource1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonResource1.Location = new System.Drawing.Point(3, 188);
+            this.buttonResource1.Name = "buttonResource1";
+            this.buttonResource1.Size = new System.Drawing.Size(384, 179);
+            this.buttonResource1.TabIndex = 2;
+            this.buttonResource1.Text = "Змейка";
+            this.buttonResource1.UseVisualStyleBackColor = true;
+            this.buttonResource1.Click += new System.EventHandler(this.buttonResource1_Click);
+            // 
+            // buttonResource2
+            // 
+            this.buttonResource2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonResource2.Location = new System.Drawing.Point(393, 188);
+            this.buttonResource2.Name = "buttonResource2";
+            this.buttonResource2.Size = new System.Drawing.Size(384, 179);
+            this.buttonResource2.TabIndex = 3;
+            this.buttonResource2.Text = "Гирлянда";
+            this.buttonResource2.UseVisualStyleBackColor = true;
+            this.buttonResource2.Click += new System.EventHandler(this.buttonResource2_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -216,6 +312,10 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
+            // colorDialog1
+            // 
+            this.colorDialog1.FullOpen = true;
+            // 
             // FormSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -231,6 +331,10 @@
             this.tableLayoutPanelGame.ResumeLayout(false);
             this.tableLayoutPanelGame.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).EndInit();
+            this.tabPageGraphics.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -252,5 +356,13 @@
         private TableLayoutPanel tableLayoutPanel2;
         private Button buttonAccept;
         private Button buttonCancel;
+        private TableLayoutPanel tableLayoutPanel3;
+        private Button buttonBorderColor;
+        private Panel panel1;
+        private CheckBox checkBox;
+        private Button buttonBackColor;
+        private Button buttonResource1;
+        private Button buttonResource2;
+        private ColorDialog colorDialog1;
     }
 }
